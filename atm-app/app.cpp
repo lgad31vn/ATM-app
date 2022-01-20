@@ -1,14 +1,9 @@
 #include <iostream>
+#include "components/showMenu.h"
 using namespace std;
 
-void showMenu() {
-    cout << "-----------MENU----------" <<endl;
-    cout << "|   1. Check Balance    |" << endl;
-    cout << "|   2. Deposit          |" << endl;
-    cout << "|   3. Withdraw         |" << endl;
-    cout << "|   4. Exit             |" << endl;
-    cout << "-------------------------" <<endl;
-}
+
+
 
 void checkBalance(double balance) {
         cout << "Your current balance is: $" << balance << endl;
