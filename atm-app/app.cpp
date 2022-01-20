@@ -9,10 +9,15 @@ void showMenu() {
     cout << "-------------------------" <<endl;
 }
 
+void checkBalance(double balance) {
+        cout << "Your current balance is: $" << balance << endl;
+}
+
 
 int main() {
     int option;
     double balance = 500.00;
+
 
     cout << "ATM Application" << endl;
     showMenu();
@@ -22,17 +27,28 @@ int main() {
 
     switch(option) {
         case 1: 
-            cout << "Your current balance is: $" << balance << endl;
+            checkBalance(balance);
             break;
 
         case 2: 
-            cout << "Your current balance: $" << balance << endl;
-            cout << "Deposit amount: ";
-            double amount = 0.00;
-            cin >> amount;
-            balance += amount;
-            cout << "You deposited $" << amount << endl;
-            cout << "Your current balance: $" << balance << endl;
+            checkBalance(balance);
+            cout << "Deposit amount: $";
+            double depositAmount;
+            cin >> depositAmount;
+            balance += depositAmount;
+            cout << "You've deposited $" << depositAmount << endl;
+            checkBalance(balance);
+            break;
+        case 3:
+            checkBalance(balance);
+            cout << "Withdraw amount: $";
+            double withdrawAmount;
+            cin >> withdrawAmount;
+            balance -= withdrawAmount;
+            cout << "You've withdrawn $" << withdrawAmount << endl;
+            checkBalance(balance);
+        break;
+
     }
 
 
