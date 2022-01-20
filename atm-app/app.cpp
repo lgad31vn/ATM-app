@@ -15,6 +15,7 @@ int main() {
     double balance = 500.00;
 
     while(option != 4) {
+        cout << endl;
         cout << "ATM Application" << endl;
         showMenu();
 
@@ -43,10 +44,16 @@ int main() {
                 cout << "Withdraw amount: $";
                 double withdrawAmount;
                 cin >> withdrawAmount;
-                balance -= withdrawAmount;
-                cout << "You've withdrawn $" << withdrawAmount << endl;
-                checkBalance(balance);
-            break;
+
+                if (withdrawAmount > balance) {
+                    cout << "Not enough to withdraw" << endl;
+                    checkBalance(balance);
+                } else {
+                    balance -= withdrawAmount;
+                    cout << "You've withdrawn $" << withdrawAmount << endl;
+                    checkBalance(balance);
+                }
+                break;
             
         }
     }
