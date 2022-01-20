@@ -6,6 +6,7 @@ void showMenu() {
     cout << "|   1. Check Balance    |" << endl;
     cout << "|   2. Deposit          |" << endl;
     cout << "|   3. Withdraw         |" << endl;
+    cout << "|   4. Exit             |" << endl;
     cout << "-------------------------" <<endl;
 }
 
@@ -18,40 +19,44 @@ int main() {
     int option;
     double balance = 500.00;
 
+    while(option != 4) {
+        cout << "ATM Application" << endl;
+        showMenu();
 
-    cout << "ATM Application" << endl;
-    showMenu();
+        cout << "what service do you want to perform?" << endl;
+        cin >> option;
+        
+        if (option < 1 || option > 4) {
+            cout << "option " << option << " is not valid" << endl;
+        } else {
+            switch(option) {
+            case 1: 
+                checkBalance(balance);
+                break;
 
-    cout << "what service do you want to perform? (1, 2, or 3)" << endl;
-    cin >> option;
-
-    switch(option) {
-        case 1: 
-            checkBalance(balance);
+            case 2: 
+                checkBalance(balance);
+                cout << "Deposit amount: $";
+                double depositAmount;
+                cin >> depositAmount;
+                balance += depositAmount;
+                cout << "You've deposited $" << depositAmount << endl;
+                checkBalance(balance);
+                break;
+            case 3:
+                checkBalance(balance);
+                cout << "Withdraw amount: $";
+                double withdrawAmount;
+                cin >> withdrawAmount;
+                balance -= withdrawAmount;
+                cout << "You've withdrawn $" << withdrawAmount << endl;
+                checkBalance(balance);
             break;
-
-        case 2: 
-            checkBalance(balance);
-            cout << "Deposit amount: $";
-            double depositAmount;
-            cin >> depositAmount;
-            balance += depositAmount;
-            cout << "You've deposited $" << depositAmount << endl;
-            checkBalance(balance);
-            break;
-        case 3:
-            checkBalance(balance);
-            cout << "Withdraw amount: $";
-            double withdrawAmount;
-            cin >> withdrawAmount;
-            balance -= withdrawAmount;
-            cout << "You've withdrawn $" << withdrawAmount << endl;
-            checkBalance(balance);
-        break;
-
+            
+        }
     }
-
-
+    }
+    cout << "Goodbye!" << endl;
 
     return 0;
 }
